@@ -10,3 +10,8 @@ RUN apk add --no-cache icu-libs && \
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+WORKDIR /var/www/app
+COPY ./app /var/www/app
+
+RUN composer install
+
